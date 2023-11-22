@@ -29,7 +29,7 @@ class ShopCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ShopFormPage(),
+                builder: (context) => const ShopFormPage(),
               ));
           }
           else if (item.name == "Lihat Produk") {
@@ -40,6 +40,7 @@ class ShopCard extends StatelessWidget {
                         final response = await request.logout(
                             "http://127.0.0.1:8000/auth/logout/");
                         String message = response["message"];
+                        if (!context.mounted) return;
                         if (response['status']) {
                           String uname = response["username"];
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -51,7 +52,7 @@ class ShopCard extends StatelessWidget {
                           );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("$message"),
+                            content: Text(message),
                           ));
                         }
                       }
