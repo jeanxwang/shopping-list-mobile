@@ -74,7 +74,7 @@ class MyHomePage extends StatelessWidget {
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 children: items.map((ShopItem item) {
-                  // Iterasi untuk setiap item
+                  // Iterasi untuk setiap item hehehe
                   return ShopCard(item);
                 }).toList(),
               ),
